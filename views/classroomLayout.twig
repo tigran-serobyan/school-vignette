@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>{{ title }}</title>
+		<link rel='stylesheet' href='{{HOME_URL}}stylesheets/style.css'/>
+		<link rel='stylesheet' href='{{HOME_URL}}stylesheets/{{classroom.style}}'/>
+	</head>
+	<body>
+		{% include 'navigation.twig' with {classroom, student, HOME_URL} %}
+		{% block body %}{% endblock %}
+	</body>
+</html>

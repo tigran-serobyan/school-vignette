@@ -1,0 +1,24 @@
+{% extends 'adminLayout.twig' %}
+
+{% block body %}
+	<label for='name'>Վերնագիր</label>
+	<input type='text' value='{{class.name}}' id="name" name='name'>
+	<label for='year'>Տարի</label>
+	<input type='text' value='{{class.year}}' id="year" name='year'>
+	<label>Գլխավոր նկար</label>
+	{% include 'images.twig' with {class, HOME_URL} %}
+	<label for='style'>Դիզայն</label>
+	<select id='style' name='style'>
+		{% for style in styles %}
+			<option value='{{style}}' {% if style == class.style %} selected {% endif %}>{{style}}</option>
+		{% endfor %}
+	</select>
+	<div id='description'>
+		{{class.description}}
+	</div>
+	<script>
+		var description = new Quill('#description', {theme: 'snow', modules: {toolbar: [[{ 'size': ['small', false, 'large', 'huge'] }], [{ 'header': [1, 2, 3, 4, 5, 6, false] }], [{ 'font': [] }], ['bold', 'italic', 'underline', 'strike'], [{ 'script': 'sub'}, { 'script': 'super' }], [{ 'indent': '-1'}, { 'indent': '+1' }], [{ 'list': 'ordered'}, { 'list': 'bullet' }], ['blockquote', 'code-block'], [{ 'color': [] }, { 'background': [] }], [{ 'align': [] }], ['link', 'image', 'video'], ['clean']]}});
+	</script>
+	<button {% if class %} onclick="saveClass('{{class.id}}')" {% else %} onclick='addClass()' {% endif %}>
+		Պահպանել</button>
+{% endblock %}

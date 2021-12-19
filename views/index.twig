@@ -1,0 +1,10 @@
+{% extends 'layout.twig' %}
+
+{% block body %}
+  {% for classroom in classrooms %}
+      <a class = "classroom" href='{{HOME_URL}}class/{{classroom.year}}'>
+        <img src='{{HOME_URL}}{{classroom.image|split('/', 2)[1]}}'>
+        <h1>{{classroom.name}}</h1>
+      </a>
+    {% endfor %}
+{% endblock %}

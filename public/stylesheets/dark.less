@@ -1,0 +1,229 @@
+*{
+    font-family: sans-serif;
+}
+
+body{
+    background-image: url('./images/black_tile_background.png');
+}
+
+a{
+    color: #e69f1c;
+}
+
+.classroomInfo{
+    vertical-align: text-top;
+    float: left;
+    text-align: left;
+    background: rgba(46, 46, 46, 0.7);
+    backdrop-filter: blur(3px);
+    position: fixed;
+    width: 25%;
+    height: 650px;
+    margin: .4% .3% .4% .7%;
+    padding: 10px;
+    box-sizing: border-box;
+    border: none;
+    color: #eee3b2;
+}
+
+.classroomInfo img{
+    vertical-align: text-top;
+    display: inline-block;
+    object-fit: cover;
+    height: 250px;
+    width: ~"calc(100% + 20px)";
+    transform: translate(-10px, -10px);
+    margin-bottom: -10px;
+}
+.classroomInfo h2{
+    text-align: center;
+}
+.student{
+    position: relative;
+    height: 600px;
+    width: 23%;
+    vertical-align: text-top;
+    z-index: 0;
+    box-sizing: border-box;
+    padding: 10px;
+    border: none;
+    background: rgba(44, 44, 44, 0.6);
+    backdrop-filter: blur(3px);
+}
+.student:nth-of-type(3n-1){
+    margin-left: 26%;
+}
+.student:nth-of-type(odd){
+    background: rgba(24, 24, 24, 0.6);
+}
+
+.student img{
+    position: absolute;
+    vertical-align: text-top;
+    display: inline-block;
+    object-fit: cover;
+    height: 220px;
+    width: ~"calc(100% - 20px)";
+    margin-right: 7%;
+}
+
+.student:nth-of-type(even) img{
+    bottom: 10px;
+}
+.student:nth-of-type(odd) img{
+    top: 10px;
+}
+
+.studentShortInfo{
+    position: absolute;
+    vertical-align: text-top;
+    display: inline-block;
+    height: 350px;
+    width: ~"calc(100% - 20px)";
+    color: #eee3b2;
+}
+
+.student:nth-of-type(odd) .studentShortInfo{
+    top: 239px;
+}
+
+.student h3, p{
+    display: block;
+    text-align: center;
+}
+
+.student h3{
+    font-size: 20px;
+    color: #f8bf3d;
+}
+
+.student p{
+    font-size: 16px;
+}
+
+.student a{
+    position: absolute;
+    bottom: 5px;
+    right: 10px;
+    padding: 8px;
+    background: #e69f1c;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 10px;
+    transition: 0.5s;
+}
+.student a:hover{
+    background: #bb7e0e;
+}
+
+// Single Student
+.studentLongInfo{
+    width: 100%;
+    background: rgba(34, 34, 34, 0.7);
+    backdrop-filter: blur(2px);
+    text-align: left;
+    min-height: 450px;
+    padding: 10px;
+    box-sizing: border-box;
+    color: #eee3b2;
+}
+.studentLongInfo p,h1,h2,h3,h4,h5,h6,a,i,b,strong,span{
+    text-align: left;
+}
+.studentInfo{
+    position: relative;
+    float: left;
+    height: 450px;
+    width: 40%;
+    padding: 10px;
+    box-sizing: border-box;
+    margin-right: 15px;
+    transform: translate(-10px, -10px);
+}
+.studentInfo img{
+    position: absolute;
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+    left: 0;
+    top: 0;
+    margin-bottom: 15px;
+}
+.studentNameAndQuote{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(185, 203, 206, 0.7);
+    padding: 10px;
+    margin: 0;
+    box-sizing: border-box;
+    color: #222;
+}
+.studentNameAndQuote h3{
+    margin: 5px 0 10px;
+}
+
+@media screen and (max-width:800px) {
+    .classroomInfo{
+        float: unset;
+        width: ~"calc(100% - 5px)";
+        height: unset;
+        position: unset;
+    }
+    .student{
+        height: 40vw;
+        width: 32%;
+        border: none;
+        color: #eee3b2;
+    }
+    .student:nth-of-type(3n-1){
+        margin-left: 0;
+    }
+    .student img{
+        height: 40vw;
+        width: ~"calc(100% + 21px)";
+        position: unset;
+        transform: translate(-10px, -10px);
+        transition: 0.3s;
+    }
+    .student:hover img {
+        width: 62%;
+        margin: 0;
+    }
+    .studentShortInfo {
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: 34%;
+        height: inherit;
+        z-index: -1;
+    }
+    .student:nth-of-type(odd) .studentShortInfo {
+        top: 0;
+    }
+    .studentShortInfo h3{
+        font-size: 13px;
+        transform: rotate(90deg);
+    }
+    .studentShortInfo p{
+        display: none;
+    }
+    .studentShortInfo a{
+        bottom: 2px;
+        right: 5px;
+        padding: 3px;
+        font-size: 10px;
+        border-radius: 3px;
+    }
+
+    .studentInfo{
+        width: ~"calc(100% + 20px)";
+    }
+    .studentNameAndQuote h3 {
+        font-size: 5.5vw;
+    }
+    .studentNameAndQuote i {
+        font-size: 3.7vw;
+    }
+}

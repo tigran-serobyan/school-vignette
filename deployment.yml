@@ -1,0 +1,62 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: vignette
+  namespace: mskh
+  labels:
+    app.kubernetes.io/name: vignette
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: vignette
+  template:
+    metadata:
+      labels:
+        app: vignette
+    spec:
+      volumes:
+        - name: data
+          hostPath:
+            path: /var/www/volumes/site-data/vignette
+            type: DirectoryOrCreate
+      containers:
+        - name: vignette
+          image: "tserobyan/school-vignette:latest"
+          env:
+            - name: DB_URL_HOSTNAME
+              value: mongodb
+            - name: DB_URL_USERNAME
+              valueFrom:
+                secretKeyRef:
+                  name: mongodb-admin
+                  key: username
+            - name: DB_URL_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: mongodb-admin
+                  key: password
+            - name: DBURI
+              value: "mongodb://$(DB_URL_USERNAME):$(DB_URL_PASSWORD)@$(DB_URL_HOSTNAME):27017/vignette?authSource=admin"
+            - name: HOME_URL
+              value: /vignette/
+          volumeMounts:
+            - mountPath: /app/public/images
+              name: data
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: vignette
+  namespace: mskh
+  labels:
+    app.kubernetes.io/name: vignette
+  annotations:
+    description: "https://github.com/tserobyan/school-vignette"
+spec:
+  ports:
+    - port: 80
+      targetPort: 80
+  type: LoadBalancer
+  selector:
+    app: vignette

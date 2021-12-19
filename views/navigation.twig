@@ -1,0 +1,15 @@
+<nav>
+	<a href="{{HOME_URL}}">
+		<h1>{{title}}</h1>
+	</a>
+	<ul>
+		{% if student %}
+			<a href="{{HOME_URL}}class/{{classroom.year}}">
+				<li>{{classroom.name}}</li>
+			</a>
+		{% endif %}
+		<a href="https://mskh.am">
+			<li class="mskh">Կրթահամալիրի կայք</li>
+		</a>
+	</ul>
+</nav>

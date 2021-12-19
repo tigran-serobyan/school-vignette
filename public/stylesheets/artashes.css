@@ -1,0 +1,211 @@
+body {
+    height: 100vh;
+    position: relative;
+    background: linear-gradient(to right, #29022c, #6e4ff7);
+    background-size: 400%;
+
+    -webkit-animation: Animation 15s ease infinite;
+    -moz-animation: Animation 15s ease infinite;
+    animation: Animation 15s ease infinite;
+}
+
+@-webkit-keyframes Animation {
+    0%{background-position:100% 0%}
+    50%{background-position:0% 0%}
+    100%{background-position:100% 0%}
+}
+
+@-moz-keyframes Animation {
+    0%{background-position:100% 0%}
+    50%{background-position:0% 0%}
+    100%{background-position:100% 0%}
+}
+
+@keyframes Animation {
+    0%{background-position:100% 0%}
+    50%{background-position:0% 0%}
+    100%{background-position:100% 0%}
+}
+
+.classroomInfo{
+    vertical-align: text-top;
+    text-align: left;
+    background: white;
+    width: 100%;
+    height: 600px;
+    margin-bottom: 20px;
+    padding: 20px 30px 20px 30px;
+    box-sizing: border-box;
+    border: none;
+    
+}
+
+.classroomInfo img{
+    vertical-align: text-top;
+    display: inline-block;
+    object-fit: cover;
+    height: 310px;
+    width: calc(100% + 20px);
+    transform: translate(-10px, -10px);
+}
+
+.student{
+    background: white;
+    border: none;
+    height: 500px;
+    width: 48.75%;
+    color: black;
+    vertical-align: text-top;
+    z-index: 0;
+    padding: 0;
+    margin: 1% 0.5%;
+}
+
+.student img{
+    vertical-align: text-top;
+    display: inline-block;
+    object-fit: cover;
+    height: 500px;
+    width: 50%;
+    transition: 0.35s;
+}
+
+.student img:hover{
+    width: 55%;
+    margin: 0;
+}
+
+.studentShortInfo{
+    position: relative;
+    vertical-align: text-top;
+    display: inline-block;
+    width: 35%;
+    height: 500px;
+    padding: 7px;
+}
+
+.student h3, p{
+    display: block;
+    text-align: left;
+}
+
+.student h3{
+    font-size: 20px;
+}
+
+.student p{
+    font-size: 16px;
+}
+
+.student a{
+    position: absolute;
+    bottom: 25px;
+    right: -30px;
+    font-size: 16px;
+    background: linear-gradient(to right, #3f043a, #691192, #6f41da);
+    background-size: 400%;
+    background-position: 0;
+    color: white;
+    padding: 5px;
+    text-decoration: none;
+    transition: background 1s;
+}
+
+.student a:hover{
+    background-position: 100%;
+}
+
+.studentLongInfo{
+    width: 100%;
+    background: white;
+    text-align: left;
+    min-height: 450px;
+    padding: 10px;
+    box-sizing: border-box;
+}
+.student_section {
+    margin-right: 20px;
+    margin-left: 20px;
+}
+.studentLongInfo p,h1,h2,h3,h4,h5,h6,a,i,b,strong,span{
+    text-align: left;
+}
+.studentInfo{
+    position: relative;
+    float: left;
+    height: 450px;
+    width: 40%;
+    background: #fff;
+    padding: 10px;
+    box-sizing: border-box;
+    margin-right: 15px;
+    transform: translate(-10px, -10px);
+}
+.studentInfo img{
+    position: absolute;
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+    left: 0;
+    top: 0;
+    margin-bottom: 15px;
+}
+.studentNameAndQuote{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(230, 230, 230, 0.6);
+    padding: 10px;
+    margin: 0;
+    box-sizing: border-box;
+}
+.studentNameAndQuote h3{
+    margin: 5px 0 10px;
+}
+
+@media screen and (max-width:800px) {
+    .classroomInfo{
+        float: unset;
+        width: 100%;
+        height: unset;
+        font-size: 5vw;
+    }
+    .classroomInfo img {
+        height: 60vw;
+    }
+    .student{
+        position: relative;
+        height: 40vw;
+        width: 48%;
+    }
+    .student img{
+        height: 40vw;
+        width: 100%;
+    }
+    .student:hover img {
+        width: 62%;
+        margin: 0;
+    }
+    .studentShortInfo {
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: 34%;
+        height: inherit;
+        z-index: -1;
+    }
+    .studentShortInfo h3{
+        font-size: 13px;
+        transform: rotate(90deg);
+    }
+    .studentShortInfo p{
+        display: none;
+    }
+    .studentShortInfo a{
+        bottom: 20px;
+        right: 2px;
+        padding: 3px;
+        font-size: 10px;
+    }
+}

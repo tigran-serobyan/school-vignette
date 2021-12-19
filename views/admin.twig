@@ -1,0 +1,18 @@
+{% extends 'adminLayout.twig' %}
+
+{% block body %}
+	<div class="adminBlock">
+        <h3>Գործողություններ</h3>
+		<a href="{{HOME_URL}}">Տեսնել գլխավոր էջը</a>
+		<a href="{{HOME_URL}}admin/classrooms">Բոլոր դասարանները՝ {{classrooms}}</a>
+		<a href="{{HOME_URL}}admin/new/class">Ավելացնել դասարան</a>
+		<a href="{{HOME_URL}}admin/students">Բոլոր սովորողները՝ {{students}}</a>
+		<a href="{{HOME_URL}}admin/new/student">Ավելացնել սովորող</a>
+	</div>
+    <div class="adminBlock">
+        <h3>Նշումներ ծրագրավորողների համար</h3>
+		<a href="{{HOME_URL}}admin/readme/README">Ծրագրի մասին</a>
+		<a href="{{HOME_URL}}admin/readme/password">Ինչպես փոխել գաղտնաբառը</a>
+		<a href="{{HOME_URL}}admin/readme/styles">Ինչպես ավելացնել կամ հեռացնել դիզայն</a>
+	</div>
+{% endblock %}

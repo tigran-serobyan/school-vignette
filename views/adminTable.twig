@@ -1,0 +1,43 @@
+{% extends 'adminLayout.twig' %}
+
+{% block body %}
+	<input id="search" placeholder="Փնտրել" onkeyup='search()'>
+	<table id="table">
+		<tr>
+			{% if table[0].year %}
+				<th>Դասարանի անուն</th>
+				<th>Տարի</th>
+				<th>Նկար</th>
+				<th>Դիզայն</th>
+				<th>Նկարագրություն</th>
+				<th>Գործողություններ</th>
+			{% else %}
+				<th>Անուն Ազգանուն</th>
+				<th>Դասարան</th>
+				<th>Նկար</th>
+				<th>Մեջբերում</th>
+				<th>Նկարագրություն</th>
+				<th>Գործողություններ</th>
+			{% endif %}
+		</tr>
+		{% for row in table %}
+			<tr id="{{row.id}}">
+				<td>{{ row.name }}</td>
+				<td>{{ row.year }}{{ row.class }}</td>
+				<td>
+					<img src='{{HOME_URL}}{{ row.image }}'></td>
+				<td>{{ row.style }}{{ row.quote }}</td>
+				<td class="body">{{ row.description }}{{ row.body }}</td>
+				<td>
+					{% if row.year %}
+						<a href='{{HOME_URL}}admin/edit/class/{{row.year}}'>Խմբագրել</a>
+						<button onclick='deleteClass("{{row.id}}")'>Հեռացնել</button>
+					{% else %}
+						<a href='{{HOME_URL}}admin/edit/student/{{row.id}}'>Խմբագրել</a>
+						<button onclick='deleteStudent("{{row.id}}")'>Հեռացնել</button>
+					{% endif %}
+				</td>
+			</tr>
+		{% endfor %}
+	</table>
+{% endblock %}

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>{{ title }}</title>
+		<link rel='stylesheet' href='{{HOME_URL}}stylesheets/admin.css'/>
+		<link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+		<script type="text/javascript"> var HOME_URL = '{{ HOME_URL }}'; </script>
+		<script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+		<script src="{{HOME_URL}}javascripts/admin.js"></script>
+	</head>
+	<body>
+		<div class="navigation">
+			<ul>
+				<a href="{{HOME_URL}}" class="home">
+					<li>Գլխավոր էջ</li>
+				</a>
+				<a href="{{HOME_URL}}admin" class="settings">
+					<li>Կառավարակետ</li>
+				</a>
+				<a href="{{HOME_URL}}admin/students" class="student">
+					<li>Սովորողներ</li>
+				</a>
+				<ul>
+					<a href="{{HOME_URL}}admin/students" class="all">
+						<li>Բոլորը</li>
+					</a>
+					<a href="{{HOME_URL}}admin/new/student" class="add">
+						<li>Ավելացնել</li>
+					</a>
+				</ul>
+				<a href="{{HOME_URL}}admin/classrooms" class="class">
+					<li>Դասարաններ</li>
+				</a>
+				<ul>
+					<a href="{{HOME_URL}}admin/classrooms" class="all">
+						<li>Բոլորը</li>
+					</a>
+					<a href="{{HOME_URL}}admin/new/class" class="add">
+						<li>Ավելացնել</li>
+					</a>
+				</ul>
+				<a href="{{HOME_URL}}admin/logout" class="logout">
+					<li>Դուրս գալ</li>
+				</a>
+			</ul>
+		</div>
+		<div class="main">
+			<h1>{{title}}</h1>
+			{% block body %}{% endblock %}
+		</div>
+	</body>
+</html>

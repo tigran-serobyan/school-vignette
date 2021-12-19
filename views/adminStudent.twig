@@ -1,0 +1,24 @@
+{% extends 'adminLayout.twig' %}
+
+{% block body %}
+	<label for='name'>Անուն</label>
+	<input type='text' value='{{student.name}}' id="name" name='name'>
+	<label>Նկար</label>
+	{% include 'images.twig' with {student, HOME_URL} %}
+	<label for='quote'>Մեջբերում</label>
+	<input type='text' value='{{student.quote}}' id="quote" name='quote'>
+	<label for='class'>Դասարան</label>
+	<select id='class' name='class'>
+		{% for classroom in classrooms %}
+			<option value='{{classroom.year}}' {% if classroom.year == student.class %} selected {% endif %}>{{classroom.name}}</option>
+		{% endfor %}
+	</select>
+	<div id='body'>
+		{{student.body}}
+	</div>
+	<script>
+		var body = new Quill('#body', {theme: 'snow', modules: {toolbar: [[{ 'size': ['small', false, 'large', 'huge'] }], [{ 'header': [1, 2, 3, 4, 5, 6, false] }], [{ 'font': [] }],	 ['bold', 'italic', 'underline', 'strike'], [{ 'script': 'sub'}, { 'script': 'super' }], [{ 'indent': '-1'}, { 'indent': '+1' }], [{ 'list': 'ordered'}, { 'list': 'bullet' }], ['blockquote', 'code-block'], [{ 'color': [] }, { 'background': [] }], [{ 'align': [] }], ['link', 'image', 'video'], ['clean']]}});
+	</script>
+	<button {% if student %} onclick="saveStudent('{{student.id}}')" {% else %} onclick='addStudent()' {% endif %}>
+		Պահպանել</button>
+{% endblock %}
